@@ -1,0 +1,240 @@
+/* ตั้งค่าพื้นฐาน */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #1f1f1f; /* เปลี่ยนพื้นหลังเป็นสีดำ */
+    color: #fff; /* ข้อความเป็นสีขาวเพื่อให้ตัดกับพื้นหลัง */
+}
+
+
+/* ส่วนหัว */
+header {
+    background: #222; /* สีพื้นหลังของ header เป็นสีดำเข้ม */
+    color: #ffffff; /* เปลี่ยนสีของข้อความใน header เป็นสีส้ม */
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+header.scrolled {
+    background-color: #333; /* เปลี่ยนสี header เมื่อเลื่อนลง */
+}
+nav ul {
+    list-style: none;
+    text-align: center;
+}
+nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+nav ul li a {
+    color: #ffffff; /* สีลิงก์เป็นสีส้ม */
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+}
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #ff6347; /* สีเส้นใต้เป็นสีส้ม */
+    bottom: -5px;
+    left: 50%;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+nav ul li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* ส่วน Hero */
+.hero {
+    background-image: url('img/wallpapersden.com_76492-1920x1080 - Copy.jpg'); /* ใส่ URL ของรูปพื้นหลัง */
+    background-size: cover; /* ปรับขนาดรูปให้ครอบคลุมเต็มพื้นที่ */
+    background-position: center; /* จัดตำแหน่งรูปให้อยู่ตรงกลาง */
+    background-attachment: fixed; /* ทำให้รูปเลื่อนแบบ Parallax */
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+.hero {
+
+    color: #ffffff; /* สีข้อความใน hero เป็นสีส้ม */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    animation: fadeIn 2s ease-out;
+}
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+.hero p {
+    font-size: 1.2rem;
+}
+
+/* ส่วนของเนื้อหา */
+.section {
+    padding: 60px 20px;
+    opacity: 0;
+    animation: fadeInUp 1.5s forwards;
+}
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #ffffff; /* สีหัวข้อเป็นสีส้ม */
+}
+p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #ffffff
+}
+tr{
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #ffffff
+}
+
+.message-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(2px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+.message-card {
+    background-color: #222; /* พื้นหลังของการ์ดเป็นสีดำ */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    color: #ffffff; /* ข้อความในการ์ดเป็นสีขาว */
+    border-color: #ff6347;
+    border-width: 7px;
+    border-style: groove;
+
+}
+.message-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    background-color: #333; /* เปลี่ยนสีพื้นหลังเมื่อโฮเวอร์เป็นสีเทาเข้ม */
+}
+
+
+/* ส่วนผลงาน */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+.project-card {
+    background-color: #222; /* พื้นหลังของการ์ดเป็นสีดำ */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    color: #fff; /* ข้อความในการ์ดเป็นสีขาว */
+    border-color: #ff6347;
+    border-width: 7px;
+    border-style: groove;
+
+}
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    background-color: #333; /* เปลี่ยนสีพื้นหลังเมื่อโฮเวอร์เป็นสีเทาเข้ม */
+}
+.project-card:hover img {
+    transform: scale(1.1); /* ซูมเมื่อโฮเวอร์ */
+}
+/* ฟอร์มติดต่อ */
+form {
+    display: grid;
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+    animation: slideIn 1s ease-out;
+}
+p{
+    color: #ffffff;
+}
+form input,
+form textarea {
+    
+    padding: 10px;
+    border: 1px solid #ff6347; /* ขอบของฟอร์มเป็นสีส้ม */
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    background-color: #222; /* พื้นหลังของช่องกรอกข้อมูลเป็นสีดำ */
+    color: #fff; /* ข้อความในช่องกรอกข้อมูลเป็นสีขาว */
+}
+form input:focus,
+form textarea:focus {
+    border-color: #ff6347; /* ขอบช่องกรอกข้อมูลเป็นสีส้มเมื่อมีการโฟกัส */
+}
+form button {
+    background-color: #ff6347; /* ปุ่มเป็นสีส้ม */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+form button:hover {
+    background-color: #e5533b; /* ปุ่มเข้มขึ้นเมื่อโฮเวอร์ */
+}
+
+/* ฟุตเตอร์ */
+footer {
+    background-color: #222;
+    color: #ff6347; /* ข้อความในฟุตเตอร์เป็นสีส้ม */
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Animation definitions */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
